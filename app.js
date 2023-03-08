@@ -1,7 +1,39 @@
 class Casino {
-    // Write code here
+    constructor (name, timesPlayed){
+        this.name = name
+        this.timesPlayed = timesPlayed || 0;
+
+    }
+
+    
+    playGame(betAmount){
+        let x = Math.random() * 1
+        if (x < 0.5) {
+            console.log( 'Casino Wins!' )
+        }
+        else{
+            console.log( this.name + ' wins ' + betAmount )
+        }
+
+       let answer = prompt("Are you feeling lucky? Y or N")
+        
+       if (answer == "Y") {
+        this.timesPlayed += 1
+         betAmount = betAmount * (this.timesPlayed +1)
+         this.playGame(betAmount)
+       } 
+       else {
+        console.log("Better luck next time chump ;)")
+       }
+    }
 };
 
+
+let myCasino = new Casino("Vicente")
+
+myCasino.playGame(15)
+
+ /*
 // TESTS
 const myCasino = new Casino("HackerU Casino");
 console.log(myCasino);
